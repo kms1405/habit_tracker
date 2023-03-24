@@ -1,0 +1,55 @@
+<div>
+  <form action="/task/create" method="POST">
+    <div class="container">
+
+      <ul class="list-group">
+        <%=heading %>
+
+
+    </div>
+    <% for (var i=0; i < posts.length; i++) {%>
+      <div class="container text-center">
+        <div class="row alert alert-info">
+          <div class="form-check">
+            <% if (posts[i].status=="Done" ){ %>
+              <input class="form-check-input" type="checkbox" value="Done" id="flexCheckDefault" checked
+                name=posts[i]._id %> >
+
+              <%} else { %>
+                <input class="form-check-input" type="checkbox" value="Not Done" id="flexCheckDefault" name=posts[i]._id
+                  %> >
+                <%}%>
+
+          </div>
+
+
+          <div class="col" name="name">
+              <%= posts[i].name %>
+                <br>
+                <small style="font-size: smaller;color: red;">task</small>
+          </div>
+
+          <div class="col">
+            <%= posts[i].status %>
+              <br>
+              <small style="font-size: smaller;color: red;">status</small>
+          </div>
+          <div class="col">
+            <%= posts[i].time %>
+              <br>
+              <small style="font-size: smaller;color: red;">task</small>
+          </div>
+        </div>
+
+      </div>
+
+      <%} %>
+        </ul>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+        </div>
+
+</div>
+
+</form>
+</div>

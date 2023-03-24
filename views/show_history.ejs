@@ -1,0 +1,41 @@
+<div>
+    <h4>
+        <%= heading %>
+    </h4>
+
+    <form action="/show_history" method="get">
+        <input type="date"  name="date">
+        <input class="btn btn-secondary" type="submit">
+      </form>
+
+    <div>
+        <% for (let [key,value] of posts) { %>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-1 alert alert-success">
+                        <%= key %>
+                    </div>
+                    <% for (var i=0; i < value.length; i++) {%>
+                        <div class="col-sm alert alert-primary">
+                            <%= value[i].name %>
+                                <br>
+                                <small>
+                                    <%= value[i].time %>
+                                </small>
+                                &nbsp
+                                <small>
+                                    <%= value[i].status %>
+                                </small>
+                        </div>
+                        <%}%>
+
+                </div>
+            </div>
+
+            <%}%>
+    </div>
+
+
+</div>

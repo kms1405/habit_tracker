@@ -1,0 +1,29 @@
+const mongoose = require('mongoose');
+
+
+const dailyTaskSchema = new mongoose.Schema({
+    name: {
+        type:String,
+        required:true
+    },
+    comment: {
+        type:String,
+        required:true
+    },
+
+    status:{
+        type:String,
+        required:true
+    },
+    time:{
+        type:String,
+        required:true
+    }
+
+},{
+    timestamps:true
+});
+
+const Task = mongoose.model("Task",dailyTaskSchema);
+
+module.exports = Task;
