@@ -1,9 +1,18 @@
 <div>
-  <form action="/task/create" method="POST">
+  <form action="/" method="get">
     <div class="container">
-
-      <ul class="list-group">
-        <%=heading %>
+      <form action="">
+        <select class="form-select" name="day_of_week"  aria-label="Default select example">
+          <% for (i in heading) {%>
+            <% if (select_value ==i) {%>
+              <option  value=<%= i %>  selected><%=heading[i] %></option>
+            <%} else { %>
+              <option  value=<%= i %>  ><%=heading[i] %></option>
+            <%} %>
+          <%}%>
+      </select>
+      <button type="submit" class="btn btn-warning mb-3" >Go</button>
+      </form>
 
 
     </div>
@@ -11,22 +20,13 @@
       <div class="container text-center">
         <div class="row alert alert-info">
           <div class="form-check">
-            <% if (posts[i].status=="Done" ){ %>
-              <input class="form-check-input" type="checkbox" value="Done" id="flexCheckDefault" checked
-                name=posts[i]._id %> >
-
-              <%} else { %>
-                <input class="form-check-input" type="checkbox" value="Not Done" id="flexCheckDefault" name=posts[i]._id
-                  %> >
-                <%}%>
+            <input class="form-check-input" type="checkbox" value="Done" id="flexCheckDefault" name=<%- posts[i]._id %>>
 
           </div>
-
-
           <div class="col" name="name">
-              <%= posts[i].name %>
-                <br>
-                <small style="font-size: smaller;color: red;">task</small>
+            <%= posts[i].name %>
+              <br>
+              <small style="font-size: smaller;color: red;">task</small>
           </div>
 
           <div class="col">
@@ -46,7 +46,12 @@
       <%} %>
         </ul>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+          <button type="submit" class="btn btn-warning mb-3" name="mark_done">Mark as done</button>
+          <button type="submit" class="btn btn-warning mb-3" name="mark_not_done">Mark as not done</button>
+        </div>
+
+        <div class="col-auto">
+
         </div>
 
 </div>

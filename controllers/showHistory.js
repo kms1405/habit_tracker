@@ -2,7 +2,6 @@ const Task = require("../models/tasks");
 
 module.exports.showHistoryController = async function (req, res) {
     date = req.query.date
-    console.log("date",date)
     if (!date) {
         var date = new Date(); 
     } else {
