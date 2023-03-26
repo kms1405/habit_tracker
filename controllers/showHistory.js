@@ -12,16 +12,16 @@ module.exports.showHistoryController = async function (req, res) {
     date.setDate(date.getDate() - 7);
 
     const lastSevenDayReport = await Task.find({
-        createdAt: {
+        date: {
             $gte: new Date(date.setHours(00, 00, 00)),
             $lt: new Date(end.setHours(23, 59, 59)),
         },
-    }).sort({ createdAt: "desc" });
+    }).sort({ date: "desc" });
 
     function groupBy(list) {
         const map = new Map();
         list.forEach((item) => {
-            date_element = item.createdAt.toString().split(" ")
+            date_element = item.date.toString().split(" ")
             key = date_element[0] + " " + date_element[1] + " " + date_element[2] + " " + date_element[3]
             const collection = map.get(key)
             if (!collection) {

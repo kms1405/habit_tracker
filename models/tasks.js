@@ -10,8 +10,8 @@ const taskSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    day_of_week: {
-        type:String,
+    date: {
+        type:Date,
         required:true
     },
     status:{

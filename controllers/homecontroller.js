@@ -8,7 +8,7 @@ homeController = async function (req,res) {
     date.setDate(new Date().getDate() - day)
     
     const findResult = await Task.find({
-        createdAt: {
+        date: {
           $gte: new Date(new Date(date).setHours(00, 00, 00)),
           $lt: new Date(new Date(date).setHours(23, 59, 59)),
         },

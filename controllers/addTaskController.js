@@ -10,7 +10,7 @@ module.exports.createTask = function (req, res) {
     const NewTask = new Task({
         name: req.body.name,
         comment: req.body.comment,
-        day_of_week: req.body.day_of_week,
+        date: req.body.date,
         status: req.body.status,
         time: req.body.time,
 
@@ -27,7 +27,6 @@ module.exports.createTask = function (req, res) {
 
 module.exports.UpdateTask = async function (req, res) {
     params = Object.keys(req.body)
-    console.log(req);
     if (params.length < 2) {
 
         return res.redirect("back")
