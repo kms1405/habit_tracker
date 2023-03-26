@@ -1,21 +1,24 @@
 <div>
-  <form action="/" method="get">
-    <div class="container">
-      <form action="">
-        <select class="form-select" name="day_of_week"  aria-label="Default select example">
-          <% for (i in heading) {%>
-            <% if (select_value ==i) {%>
-              <option  value=<%= i %>  selected><%=heading[i] %></option>
+  <div class="container">
+    <form action="/" method="get">
+      <select class="form-select" name="day_of_week" aria-label="Default select example">
+        <% for (i in heading) {%>
+          <% if (select_value==i) {%>
+            <option value=<%=i %> selected><%=heading[i] %>
+            </option>
             <%} else { %>
-              <option  value=<%= i %>  ><%=heading[i] %></option>
-            <%} %>
-          <%}%>
+              <option value=<%=i %> ><%=heading[i] %>
+              </option>
+              <%} %>
+                <%}%>
       </select>
-      <button type="submit" class="btn btn-warning mb-3" >Go</button>
-      </form>
+      <button type="submit" class="btn btn-secondary mb-3">Go</button>
+    </form>
+  </div>
 
 
-    </div>
+  <form action="/task/update" method="post">
+
     <% for (var i=0; i < posts.length; i++) {%>
       <div class="container text-center">
         <div class="row alert alert-info">
@@ -44,17 +47,17 @@
       </div>
 
       <%} %>
-        </ul>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-warning mb-3" name="mark_done">Mark as done</button>
-          <button type="submit" class="btn btn-warning mb-3" name="mark_not_done">Mark as not done</button>
-        </div>
-
-        <div class="col-auto">
-
-        </div>
+</div>
+<div class="container">
+  <div class="col-auto">
+    <button type="submit" class="btn btn-warning mb-3" name="mark_done" >Mark as done</button>
+    <button type="submit" class="btn btn-warning mb-3" name="mark_not_done">Mark as not done</button>
+    <button type="submit" class="btn btn-warning mb-3" name="none">Mark as none</button>
+  </div>
 
 </div>
+
+
 
 </form>
 </div>

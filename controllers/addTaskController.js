@@ -1,7 +1,7 @@
 const Task = require('../models/tasks')
 
 module.exports.addTaskForm = function (req, res) {
-    return res.render("add_task");
+    return res.render("add_task",{success_msg:false});
 
 };
 
@@ -18,7 +18,7 @@ module.exports.createTask = function (req, res) {
     });
 
     NewTask.save().then(() => {
-        res.end("secrets");
+        res.redirect("/");
     }).catch((err) => {
         console.log(err);
     })
@@ -28,7 +28,6 @@ module.exports.createTask = function (req, res) {
 
 module.exports.UpdateTask = async function (req, res) {
     params = Object.keys(req.body)
-    
     if (params.length < 2) {
 
         return res.redirect("/")
@@ -42,7 +41,7 @@ module.exports.UpdateTask = async function (req, res) {
 
             }
 
-        } else {
+        } else if (params.includes("mark_not_done")) {
             for (value in params) {
                 if (params[value] != "mark_not_done") {
                     console.log("mark not done")
@@ -50,9 +49,18 @@ module.exports.UpdateTask = async function (req, res) {
 
                 }
             }
+        } else {
+            for (value in params) {
+                if (params[value] != "none") {
+                    console.log("mark none")
+                    const findResult = await Task.findOneAndUpdate({ _id: params[value] }, { status: "none" },{new:true});
+
+                }
+            }
+
         }
 
-        return res.redirect("/");
+        return res.render("home");
 
     }
 

@@ -18,7 +18,7 @@ module.exports.showHistoryController = async function (req, res) {
             $gte: new Date(date.setHours(00, 00, 00)),
             $lt: new Date(end.setHours(23, 59, 59)),
         },
-    });
+    }).sort({createdAt:"desc"});
 
     function groupBy(list) {
         const map = new Map();
@@ -37,7 +37,7 @@ module.exports.showHistoryController = async function (req, res) {
 
     all_reports = groupBy(lastSevenDayReport);
     return res.render("show_history", {
-        heading: "Last seven days report",
+        heading: "Task history",
         posts: all_reports
     })
 }

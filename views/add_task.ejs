@@ -1,41 +1,52 @@
+<div>
 
-<div class="container bg-secondary">
-    <form action="/task/create" method="POST">
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" name="name" id="floatingInput" placeholder="task name">
-            <label for="floatingInput">task name</label>
-        </div>
-        <br>
-        <div class="form-floating">
-            <input type="text" class="form-control" name="comment" id="floatingInput" placeholder="comment">
-            <label for="floatingInput">Comment</label>
-        </div>
-        <br>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="day_of_week" id="floatingInput" placeholder="Day of week">
-            <label for="floatingInput">Day of week</label>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="status">
-              <option>null</option>
-              <option>Done</option>
-              <option>Not Done</option>
-            </select>
+    <% if (success_msg) { %>
+        <div class="alert alert-primary" role="alert">
+            Task added successfully
           </div>
-        <br>
-        <br>
-
-        <div class="form-floating">
-            <input type="time" class="form-control" name="time" id="floatingInput" placeholder="time">
-            <label for="floatingInput">time</label>
-        </div>
-
-        <br>
-        <br>
-        <button type="submit" class="btn btn-primary">Add</button>
-
-    </form>
-
+    <%} %>
+    
+    <div class="container bg-secondary">
+    
+        
+          
+        <form action="/task/create" method="POST">
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" name="name" id="floatingInput" placeholder="task name">
+                <label for="floatingInput">task name</label>
+            </div>
+            <br>
+            <div class="form-floating">
+                <input type="text" class="form-control" name="comment" id="floatingInput" placeholder="comment">
+                <label for="floatingInput">Comment</label>
+            </div>
+            <br>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="day_of_week" id="floatingInput" placeholder="Day of week">
+                <label for="floatingInput">Day of week</label>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="status">
+                  <option>none</option>
+                  <option>Done</option>
+                  <option>Not Done</option>
+                </select>
+              </div>
+            <br>
+            <br>
+    
+            <div class="form-floating">
+                <input type="time" class="form-control" name="time" id="floatingInput" placeholder="time">
+                <label for="floatingInput">time</label>
+            </div>
+    
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Add</button>
+    
+        </form>
+    
+    </div>
 </div>

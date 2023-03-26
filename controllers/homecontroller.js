@@ -12,7 +12,7 @@ homeController = async function (req,res) {
           $gte: new Date(new Date(date).setHours(00, 00, 00)),
           $lt: new Date(new Date(date).setHours(23, 59, 59)),
         },
-      });
+      }).sort({time:"asc"});
 
 
     const get_days = function (){
