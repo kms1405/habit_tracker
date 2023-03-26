@@ -7,7 +7,6 @@ module.exports.addTaskForm = function (req, res) {
 
 
 module.exports.createTask = function (req, res) {
-    console.log(req.body)
     const NewTask = new Task({
         name: req.body.name,
         comment: req.body.comment,
@@ -36,7 +35,6 @@ module.exports.UpdateTask = async function (req, res) {
         if (params.includes("mark_done")) {
             for (value in params) {
                 if (params[value] != "mark_done") {
-                    console.log("mark done")
                     const findResult = await Task.findOneAndUpdate({ _id: params[value] }, { status: "Done" },{new:true});
                 }
 
@@ -45,7 +43,6 @@ module.exports.UpdateTask = async function (req, res) {
         } else if (params.includes("mark_not_done")) {
             for (value in params) {
                 if (params[value] != "mark_not_done") {
-                    console.log("mark not done")
                     const findResult = await Task.findOneAndUpdate({ _id: params[value] }, { status: "Not Done" },{new:true});
 
                 }
@@ -53,7 +50,6 @@ module.exports.UpdateTask = async function (req, res) {
         } else {
             for (value in params) {
                 if (params[value] != "none") {
-                    console.log("mark none")
                     const findResult = await Task.findOneAndUpdate({ _id: params[value] }, { status: "none" },{new:true});
 
                 }

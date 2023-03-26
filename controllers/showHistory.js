@@ -11,7 +11,6 @@ module.exports.showHistoryController = async function (req, res) {
     end = new Date(date)
     date.setDate(date.getDate() - 7);
 
-
     const lastSevenDayReport = await Task.find({
         createdAt: {
             $gte: new Date(date.setHours(00, 00, 00)),
