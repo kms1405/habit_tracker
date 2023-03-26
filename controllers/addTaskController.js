@@ -57,8 +57,5 @@ module.exports.UpdateTask = async function (req, res) {
         }
 
         return res.redirect("back");
-
     }
-
-
 };

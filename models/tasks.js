@@ -27,7 +27,7 @@ const taskSchema = new mongoose.Schema({
     timestamps:true
 });
 
-taskSchema.index( { "name": 1, "day_of_week": 1 }, { unique: true } )
+taskSchema.index( { "name": 1, "date": 1 }, { unique: true } )
 const Task = mongoose.model("Task",taskSchema);
 
 module.exports = Task;
