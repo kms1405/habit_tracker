@@ -28,9 +28,10 @@ module.exports.createTask = function (req, res) {
 
 module.exports.UpdateTask = async function (req, res) {
     params = Object.keys(req.body)
+    console.log(req);
     if (params.length < 2) {
 
-        return res.redirect("/")
+        return res.redirect("back")
     } else {
         if (params.includes("mark_done")) {
             for (value in params) {
@@ -60,7 +61,7 @@ module.exports.UpdateTask = async function (req, res) {
 
         }
 
-        return res.render("home");
+        return res.redirect("back");
 
     }
 

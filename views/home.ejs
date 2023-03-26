@@ -18,7 +18,7 @@
 
 
   <form action="/task/update" method="post">
-
+    
     <% for (var i=0; i < posts.length; i++) {%>
       <div class="container text-center">
         <div class="row alert alert-info">
@@ -30,6 +30,11 @@
             <%= posts[i].name %>
               <br>
               <small style="font-size: smaller;color: red;">task</small>
+          </div>
+          <div class="col" name="comment">
+            <%= posts[i].comment %>
+              <br>
+              <small style="font-size: smaller;color: red;">comment</small>
           </div>
 
           <div class="col">
