@@ -19,7 +19,12 @@
                     </div>
                     <% for (var i=0; i < value.length; i++) {%>
                         <div class="col-sm alert alert-primary">
-                            <%= value[i].name %>
+                            <% name = value[i].name %>
+                            <% done = task_count[name][0] %>
+                            <% total= task_count[name][1] %>
+                            <%= name  %>
+                            <small>(<%= done %> / <%= total %>)</small>
+                            
                                 <br>
                                 <small>
                                     <%= value[i].time %>

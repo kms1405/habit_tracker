@@ -17,7 +17,7 @@ module.exports.createTask = function (req, res) {
     });
 
     NewTask.save().then(() => {
-        res.redirect("/task");
+        res.redirect("/task")
     }).catch((err) => {
         console.log(err);
     })
