@@ -9,7 +9,7 @@ module.exports.showHistoryController = async function (req, res) {
     }
 
     end = new Date(date)
-    date.setDate(date.getDate() - 7);
+    date.setDate(date.getDate() - 6);
 
     const lastSevenDayReport = await Task.find({
         date: {
