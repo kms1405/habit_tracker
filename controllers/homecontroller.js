@@ -7,6 +7,7 @@ homeController = async function (req, res) {
   date = new Date()
   date.setDate(new Date().getDate() - day)
 
+  // Fetch last 7 days data
   const findResult = await Task.find({
     date: {
       $gte: new Date(new Date(date).setHours(00, 00, 00)),
@@ -15,6 +16,7 @@ homeController = async function (req, res) {
   }).sort({ time: "asc" });
 
 
+  // To show last 7 days name
   const get_days = function () {
     arr = ["Today", "Yesterday"]
     today_date = new Date()
@@ -29,6 +31,7 @@ homeController = async function (req, res) {
   };
   var findTotal = await Task.find({}).select("name status -_id");
 
+  // To calculate streak count
   function find_streak() {
     const streak_count = {};
 

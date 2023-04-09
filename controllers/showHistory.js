@@ -11,6 +11,7 @@ module.exports.showHistoryController = async function (req, res) {
     end = new Date(date)
     date.setDate(date.getDate() - 6);
 
+    // It will retrive last 7 days data from given data
     const lastSevenDayReport = await Task.find({
         date: {
             $gte: new Date(date.setHours(00, 00, 00)),
@@ -18,6 +19,7 @@ module.exports.showHistoryController = async function (req, res) {
         },
     }).sort({ date: "desc" });
 
+    // To segregate day wise task
     function groupBy(list) {
         const map = new Map();
         list.forEach((item) => {
@@ -35,11 +37,10 @@ module.exports.showHistoryController = async function (req, res) {
     }
 
 
-
     const all_reports = groupBy(lastSevenDayReport);
-
     const fetch_task = await Task.find({})
 
+    // Cout streak
     function count_status(task_list) {
         const count_map={};
         task_list.forEach((item => {

@@ -1,11 +1,13 @@
 const Task = require('../models/tasks')
 
+// To get add form
 module.exports.addTaskForm = function (req, res) {
     return res.render("add_task",{success_msg:false});
 
 };
 
 
+// To create task
 module.exports.createTask = function (req, res) {
     const NewTask = new Task({
         name: req.body.name,
@@ -25,6 +27,7 @@ module.exports.createTask = function (req, res) {
 
 };
 
+// To update task
 module.exports.UpdateTask = async function (req, res) {
     params = Object.keys(req.body)
     if (params.length < 2) {

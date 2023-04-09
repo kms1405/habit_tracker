@@ -1,10 +1,10 @@
-const express= require("express");
+const express = require("express");
 const router = express.Router();
 
 const historyController = require("../controllers/showHistory");
 
-
-router.get('/',historyController.showHistoryController);
+// History page routes
+router.get('/', historyController.showHistoryController);
 
 
 module.exports = router;

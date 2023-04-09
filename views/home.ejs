@@ -12,6 +12,7 @@
               <%} %>
                 <%}%>
       </select>
+
       <button type="submit" class="btn btn-secondary mb-3">Go</button>
     </form>
   </div>
@@ -49,6 +50,7 @@
             <td>
               <%= posts[i].time %>
             </td>
+            <!-- to show streak -->
             <td>
               <%= streaks[posts[i].name].success %>
                 / <%=streaks[posts[i].name].total_task %>
