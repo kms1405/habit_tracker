@@ -29,7 +29,6 @@ module.exports.showHistoryController = async function (req, res) {
             if (!collection) {
                 map.set(key, [item]);
             } else {
-                console.log(item.name)
                 collection.push(item);
             }
         });
@@ -69,7 +68,6 @@ module.exports.showHistoryController = async function (req, res) {
     }
 
     all_task_count = count_status(fetch_task);
-    console.log(all_task_count);
 
     return res.render("show_history", {
         heading: "Task history",
